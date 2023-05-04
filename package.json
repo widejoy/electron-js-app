@@ -1,0 +1,17 @@
+{
+  "name": "electron",
+  "productname": "image rersizer",
+  "version": "1.0.0",
+  "description": "my first electron js app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "widejoy",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^24.2.0",
+    "resize-img": "^2.0.0",
+    "toastify-js": "^1.12.0"
+  }
+}
