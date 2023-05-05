@@ -1,13 +1,25 @@
 const path = require('path');
-const {app, BrowserWindow} = require('electron');
+const url = require('url')
+const {app, BrowserWindow, protocol} = require('electron');
 
-function CreateMainWindow() {
-    const MainWindow = new BrowserWindow({
+let win;
+function createMainWindow() {
+    win = new BrowserWindow({
         title:'image resizer',
         width:500,
         height:600
 
     });
-   MainWindow.loadFile(path.join(__dirname, './renderer/index.html'));
+    win.loadURL(url.format({
 
+        pathname:path.join(__dirname,'./renderer/index.html'),
+        protocol: 'file',
+        slashes: true 
+    }));
+
+    win.on('closed', ()=>{
+        win = null;
+    })
 }
+
+app.on('ready' , createMainWindow)
